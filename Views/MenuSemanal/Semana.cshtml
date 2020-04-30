@@ -1,0 +1,102 @@
+﻿@section css {
+    <link href="@Url.Content("~/css/toDoList.css")" rel="stylesheet" />
+    <link href="~/css/semana.css" rel="stylesheet" />
+}
+
+@{
+    var week = Model as Week;
+    ViewData["Semana"] = week.Name;
+}
+
+<button type="button" id="Mostrar" class="btn btn-info float-right">Mostrar Fin de Semana >></button>
+
+<table class="table">
+    <thead>
+        @{
+            var fila = 0;
+        }
+
+    <td>
+        <table class="table table-bordered">
+            <thead>
+            <th>Tiempo</th>
+            </thead>
+            <tbody>
+                <tr><th class="align-middle text-center" height="100px">Desayuno</th></tr>
+                <tr><th class="align-middle text-center" height="100px">Merienda Mañana</th></tr>
+                <tr><th class="align-middle text-center" height="100px">Almuerzo</th></tr>
+                <tr><th class="align-middle text-center" height="100px">Merienda Tarde</th></tr>
+                <tr><th class="align-middle text-center" height="100px">Cena</th></tr>
+                <tr><th class="align-middle text-center" height="100px">Snaks</th></tr>
+            </tbody>
+        </table>
+    </td>
+
+    @foreach (var day in week.DaysToMeal)
+    {
+        <td id="@day.Key">
+            <table class="table table-hover table-bordered ">
+                <thead>
+                <th class="text-center">@day.Key</th>
+                </thead>
+                @foreach (var meal in day.Value)
+                {
+                    var things = meal.Value;
+
+                    <tbody>
+                        <tr>
+                            <td height="100px" class="celda">
+                                <div class="buscador" style="width:250px;">
+                                    <div class="input-group mb-1 hover-div" style="display:none;">
+                                        <input type="text" class="form-control custom-buscador" maxlength="15" id="@string.Format("txt{0}{1}",day.Key,meal.Key).GetHashCode()" placeholder="Comidas" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary custom-buscador" id="@string.Format("btn{0}{1}",day.Key,meal.Key).GetHashCode()" type="button" onclick="newElement(this)">Add</button>
+                                        </div>
+                                    </div>
+                                    <ul id="@string.Format("ul{0}{1}",day.Key,meal.Key).GetHashCode()" class="myUL">
+                                        @foreach (var thing in meal.Value.Things)
+                                        {
+                                            <li>@thing</li>
+                                        }
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </td>
+        fila++;
+    }
+    </thead>
+</table>
+
+@section Scripts  {
+    <script src="~/js/toDoList.js"></script>
+
+    <script>
+
+        $('td#Sabado').hide();
+        $('td#Domingo').hide();
+
+        $("#Mostrar").click(function () {
+
+            if ($(this).text() == "Mostrar Fin de Semana >>") {
+                $(this).text("<< Ocultar Fin de Semana")
+            } else {
+                $(this).text("Mostrar Fin de Semana >>")
+            }
+
+            $('td#Sabado').toggle();
+            $('td#Domingo').toggle();
+        });
+
+        $(".celda").mouseover(function () {
+            $(this).find(".hover-div").show();
+        });
+
+        $(".celda").mouseleave(function () {
+            $(this).find(".hover-div").hide();
+        });
+    </script>
+}

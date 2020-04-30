@@ -1,0 +1,14 @@
+﻿.container-body {
+    margin-left: initial !important;
+    min-width: 100%;
+    font-size:13px;
+}
+
+.custom-buscador
+{
+    font-size: 0.7rem;
+}
+
+.table td {
+    padding: 0.1rem;
+}

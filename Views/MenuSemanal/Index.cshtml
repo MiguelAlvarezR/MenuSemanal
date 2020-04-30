@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Listado";
+    ViewData["Semana"] = "Menú Semanal";
+}
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+})
+
+    </script>
+}
+
+<div class="text-left">
+    <table id="dtBasicExample" class="table table-hover">
+        <thead>
+        <th class="th-sm">Nombre</th>
+        </thead>
+        <tbody>
+            @foreach (var week in Model)
+            {
+                <tr onclick="location.href = '@(Url.Action("GetItemDetail", "MenuSemanal", new { id = week.Id }))'">
+                    <th>
+                        @week.Name
+                        <span style="float:right;"><i class="fa fa-calendar"></i></span>
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

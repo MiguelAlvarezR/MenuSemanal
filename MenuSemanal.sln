@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuSemanal", "MenuSemanal.csproj", "{98A7CB11-9A43-45B9-93DA-00A0089CE573}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98A7CB11-9A43-45B9-93DA-00A0089CE573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A7CB11-9A43-45B9-93DA-00A0089CE573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A7CB11-9A43-45B9-93DA-00A0089CE573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A7CB11-9A43-45B9-93DA-00A0089CE573}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {308C02B3-6B90-4F08-A344-5D600D5356EC}
+	EndGlobalSection
+EndGlobal
